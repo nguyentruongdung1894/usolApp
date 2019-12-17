@@ -22,7 +22,7 @@ public class userController {
 	public userController() {
 		uModel = new userModel();
 	}
-
+	
 	@RequestMapping("loginForm.htm")
 	public String login() {
 		return "login";

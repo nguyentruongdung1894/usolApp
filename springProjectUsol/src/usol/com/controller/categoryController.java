@@ -21,7 +21,15 @@ public class categoryController {
 	public categoryController() {
 		cModel = new categoryModel();
 	}
-
+	
+	@RequestMapping("/index.htm")
+	public String index(HttpSession session) {
+		List<categoryEntity> list = new ArrayList<categoryEntity>();
+		list = cModel.getAllCategory();
+		session.setAttribute("categoryName", list);
+		return "index";
+	}
+	
 	@RequestMapping("getAllCategory.htm")
 	public String getAllCategory(HttpSession session) {
 		List<categoryEntity> list = new ArrayList<categoryEntity>();

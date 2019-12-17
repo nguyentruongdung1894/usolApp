@@ -100,6 +100,9 @@ footer {
 				<ul class="nav navbar-nav">
 					<li class="active"><a class="active" href="#"><i
 							class="fa fa-fw fa-home"></i> Home</a></li>
+					<c:forEach var="list" items="${sessionScope.categoryName}">
+						<li><a class="active" href="#"><i class="fa fa-fw fa-home"></i>${list.categoryName}</a></li>
+					</c:forEach>
 					<li><a class="active" href="#"><i class="fa fa-fw fa-home"></i>Category</a></li>
 					<li><a class="active" href="#"><i class="fa fa-fw fa-home"></i>News</a></li>
 				</ul>
