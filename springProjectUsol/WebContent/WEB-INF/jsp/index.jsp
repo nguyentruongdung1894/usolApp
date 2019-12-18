@@ -30,7 +30,7 @@
 	overflow: auto;
 }
 
-.nwsTit>a {
+.dropdown>a {
 	font-size: 17px;
 }
 
@@ -82,6 +82,41 @@ footer {
 		height: auto;
 	}
 }
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 </style>
 </head>
 
@@ -97,17 +132,17 @@ footer {
 				<a class="navbar-brand" href="#">Logo</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a class="active" href="#"><i
-							class="fa fa-fw fa-home"></i> Home</a></li>
-					<c:forEach var="list" items="${sessionScope.categoryName}">
-						<li><a class="active" href="#"><i class="fa fa-fw fa-home"></i>${list.categoryName}</a></li>
-					</c:forEach>
-					<li><a class="active" href="#"><i class="fa fa-fw fa-home"></i>Category</a></li>
-					<li><a class="active" href="#"><i class="fa fa-fw fa-home"></i>News</a></li>
-				</ul>
+				<div class="dropdown">
+					<a class="dropbtn" href="#" style="color: red"><i class="fa fa-fw fa-home"></i>Category</a>
+					<div class="dropdown-content">
+						<c:forEach var="list" items="${sessionScope.categoryName}">
+							<a class="active" href="#"><i class="fa fa-fw fa-home"></i>${list.categoryName}</a>
+						</c:forEach>
+					</div>
+				</div>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="loginForm.htm"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li><a href="loginForm.htm"><span
+							class="glyphicon glyphicon-log-in"></span> Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -124,17 +159,20 @@ footer {
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 					<div class="item active">
-					<%-- <img src="<c:url value="${img.imgUrl}" />" alt="Avatar"
+						<%-- <img src="<c:url value="${img.imgUrl}" />" alt="Avatar"
 				class="avatar"> --%>
-						<img src="<c:url value="/resources/image/1.jpg" />" alt="Los Angeles" style="width: 100%;">
+						<img src="<c:url value="/resources/image/1.jpg" />"
+							alt="Los Angeles" style="width: 100%;">
 					</div>
 
 					<div class="item">
-						<img src="<c:url value="/resources/image/2.jpg" />" alt="Chicago" style="width: 100%;">
+						<img src="<c:url value="/resources/image/2.jpg" />" alt="Chicago"
+							style="width: 100%;">
 					</div>
 
 					<div class="item">
-						<img src="<c:url value="/resources/image/9.jpg" />" alt="New york" style="width: 100%;">
+						<img src="<c:url value="/resources/image/9.jpg" />" alt="New york"
+							style="width: 100%;">
 					</div>
 				</div>
 				<!-- Left and right controls -->
